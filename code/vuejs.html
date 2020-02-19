@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引入vue</title>
+</head>
+
+<body>
+
+    <!-- 1.设置vue所管理的视图 -->
+    <div id="app">
+        {{name}}
+
+    </div>
+    <!-- 2.引入vuejs 这个时候有了一个全局对象vue -->
+    <script src="vue.js"></script>
+    <!-- 3.实例化vue对象 -->
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                name: "姚胜明是个小可爱"
+            }
+        })
+    </script>
+</body>
+
+</html>
