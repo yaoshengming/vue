@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开灯关灯</title>
+    <style>
+        .open {
+            width: 100%;
+            height: 100vh;
+            background-color: chartreuse;
+            /* 1vh 就是当前可视区域的竖直高度的百分之一 */
+        }
+        
+        .off {
+            width: 100%;
+            height: 100vh;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="openLight()">开/关</button>
+    <!-- 1.设置vue所管理的视图 -->
+    <div id="app">
+        <!-- 条件渲染v-if -->
+        <!-- 开灯 -->
+        <div v-if="open" class="open"></div>
+        <!-- 关灯 -->
+        <div v-if="!open" class="off"></div>
+    </div>
+    <!-- 2.引入vuejs 这个时候有了一个全局对象vue -->
+    <script src="../vue.js"></script>
+    <!-- 3.实例化vue对象 -->
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                open: true, //open为true表示开灯状态 false为关灯状态
+                showMessage: false //显示信息
+            },
+            methods: {}
+        });
+
+        function openLight() {
+            vm.open = !vm.open //数据变化=>视图更新
+        }
+    </script>
+</body>
+
+</html>
